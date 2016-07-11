@@ -19,12 +19,13 @@ namespace ForTinkoff.Controllers
         {
             linkItems = new LinksRepository();
         }
-
+        [HttpGet]
         public IEnumerable<Link> Get()
         {
             return linkItems.GetAll();
         }
 
+        [HttpGet]
         public IHttpActionResult Get(int id)
         {
             var link = linkItems.Find(id);
@@ -32,7 +33,7 @@ namespace ForTinkoff.Controllers
                 return NotFound();
             return Ok(link);
         }
-
+        [HttpPost]
         public IHttpActionResult Post([FromBody]Link link)
         {
             if (link == null)
@@ -40,8 +41,8 @@ namespace ForTinkoff.Controllers
             linkItems.Add(link);
             return Ok();
         }
-
-        public IHttpActionResult Put(int id, Link item)
+        [HttpPut]
+        public IHttpActionResult Put(int id, [FromBody] Link item)
         {
             if (item == null || item.Id != id)
             {
@@ -58,6 +59,7 @@ namespace ForTinkoff.Controllers
             return Ok();
         }
 
+        [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
             var link = linkItems.Remove(id);
