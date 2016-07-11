@@ -15,6 +15,7 @@ namespace ForTinkoff
     {
         protected void Application_Start()
         {
+
             using (var db = new ShortLinksContext())
             {
                 db.Database.Initialize(true);
