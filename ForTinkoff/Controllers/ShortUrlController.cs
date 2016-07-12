@@ -11,7 +11,7 @@ namespace ForTinkoff.Controllers
     {
         private readonly ShortLinksContext context = new ShortLinksContext();
         // GET: ShortUrl
-        public ActionResult Index(string url)
+        public ActionResult Index(string id)
         {
             var shortUrl = Request.Url.OriginalString;
             var link =context.Links.FirstOrDefault(l => l.ShortUrl == shortUrl);
