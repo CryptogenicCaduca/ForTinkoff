@@ -6,13 +6,19 @@
     <script src="../../Modules/ShortenLink.js"></script>
 }
 
-<div ng-app="ShortenLinkApp" class="container">
+<div ng-app="ShortenLinkApp" ng-controller="eventHandlerController" class="container">
     <br/>
     <br/>
-
-        <div class="col-lg-10  col-lg-offset-3 btn-block" ng-controller="eventHandlerController">
-            <input class="col-lg-8 form-control" autocomplete="off" type="text" name="url" placeholder="Paste a link to shorten it" ng-model="longLink">
-            <button class="col-md-2 btn btn-primary" ng-click="shortenLink()">Shorten Link</button>
+    <div class="col-sm-6 btn-block">
+        <div class="col-md-offset-3">
+            <input class="col-sm-4 form-control" autocomplete="off" type="text" placeholder="Paste a link to shorten it" ng-model="longLink">
+            <button class="col-sm-2 btn btn-primary" ng-click="shortenLink()">Shorten Link</button>
         </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="col-md-offset-3 text-center">
+            <input type="text" style="text-align: center; border:none" ng-model="shortLink" readonly="readonly"/>
+        </div>
+    </div>
     <br/>
 </div>

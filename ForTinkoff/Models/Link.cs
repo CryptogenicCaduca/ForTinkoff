@@ -35,7 +35,7 @@ namespace ForTinkoff.Models
                 i--;
             }
             if (i == -1 || shortUrl[i] == '/')
-                shortUrl.Insert(0, '0');
+                shortUrl.Insert(i+1, '0');
             else
                 shortUrl[i] = alphabet[Array.IndexOf(alphabet, shortUrl[i]) + 1];
 

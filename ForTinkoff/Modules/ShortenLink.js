@@ -1,12 +1,12 @@
 ﻿var ShortenLinkApp = angular.module('ShortenLinkApp', []);
 ShortenLinkApp.controller('eventHandlerController', function($scope, PostLinkService) {
     $scope.longLink = 'https://msdn.microsoft.com/ru-ru/library/aa288467(v=vs.71).aspx';
+    $scope.shortLink = '';
     function postLink() {
         PostLinkService.postLink($scope.longLink)
             .success(function(link) {
                 $scope.shortLink = link;
                 console.log($scope.link);
-                alert('Here is your short link, ' + $scope.shortLink);
             })
             .error(function(error) {
                 $scope.status = 'Unable to load customer data: ' + error.message;
