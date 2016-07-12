@@ -1,3 +1,9 @@
 ﻿body {
     margin-top: 10%;
 }
+.inner {
+    border: none
+}
+#linkContainer {
+    margin-top: 20px;
+}

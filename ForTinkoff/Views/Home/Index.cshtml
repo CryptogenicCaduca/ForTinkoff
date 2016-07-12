@@ -5,15 +5,18 @@
     <script src="../../Modules/ShortenLink.js"></script>
 }
 
-<div ng-app="ShortenLinkApp" ng-controller="eventHandlerController">
-    <div class="btn-block inner cover">
-        <div class="col-xs-8 col-md-10">
-            <input class="form-control" autocomplete="off" type="text" placeholder="Paste a link to shorten it" ng-model="longLink">
+<body>
+    <div ng-app="ShortenLinkApp" ng-controller="eventHandlerController">
+        <div class="btn-block row">
+            <div class="col-xs-8 col-md-10">
+                <input class="form-control" autocomplete="off" type="text" placeholder="Paste a link to shorten it" ng-model="longLink">
+            </div>
+            <button class="btn btn-primary" ng-click="shortenLink()">Shorten Link</button>
         </div>
-        <button class="btn btn-primary" ng-click="shortenLink()">Shorten Link</button>
+        <div id="linkContainer" class="row">
+            <div class="col-xs-8 col-md-10">
+                <input class="inner" type="text" placeholder="Here will be short link" ng-model="shortLink" readonly="readonly"/>
+            </div>
+        </div>
     </div>
-    <div class="clearfix"></div>
-    <div class="text-center">
-        <input type="text" style="text-align: center; border: none" ng-model="shortLink" readonly="readonly"/>
-    </div>
-</div>
+</body>

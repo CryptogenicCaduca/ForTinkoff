@@ -27,6 +27,5 @@ ShortenLinkApp.factory('PostLinkService', [
             return $http.post('/Api/Link', '"' + $longLink + '"');
         };
         return PostLinkService;
-
     }
 ]);
