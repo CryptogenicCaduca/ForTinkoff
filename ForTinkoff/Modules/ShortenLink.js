@@ -1,7 +1,5 @@
 ﻿var ShortenLinkApp = angular.module('ShortenLinkApp', []);
 ShortenLinkApp.controller('eventHandlerController', function($scope, PostLinkService) {
-    $scope.longLink = 'https://msdn.microsoft.com/ru-ru/library/aa288467(v=vs.71).aspx';
-    $scope.shortLink = '';
     function postLink() {
         PostLinkService.postLink($scope.longLink)
             .success(function(link) {

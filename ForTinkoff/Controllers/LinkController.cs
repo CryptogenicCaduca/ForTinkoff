@@ -37,8 +37,10 @@ namespace ForTinkoff.Controllers
         [HttpPost]
         public IHttpActionResult Post([FromBody]string url)
         {
-            if (url == null)
-                return BadRequest();
+            Uri uriResult;
+            bool created = Uri.TryCreate(url, UriKind.Absolute, out uriResult);
+            if (!created)
+                return BadRequest("Incorrect url");
 
             var link = linkItems.Last() + 1;
             link.Url = url;

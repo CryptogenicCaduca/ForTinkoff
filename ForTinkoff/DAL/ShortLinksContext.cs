@@ -10,16 +10,17 @@ using ForTinkoff.Models;
 namespace ForTinkoff.DAL
 {
 
-    public class ShortLinksContext : DbContext
+    public class ShortLinksContext: DbContext
     {
-        public ShortLinksContext() : base("ShortLinksContext")
+        public ShortLinksContext() : base("ShortLinksContext") 
         {
-        }
-
+        } 
+         
         public DbSet<Link> Links { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
     }
