@@ -31,6 +31,11 @@ namespace ForTinkoff.Models
             return context.Links.FirstOrDefault(l => l.Id == id);
         }
 
+        public Link Last()
+        {
+            return context.Links.OrderByDescending(l => l.Id).FirstOrDefault();
+        }
+
         public Link Remove(int id)
         {
             var link = context.Links.Remove(context.Links.FirstOrDefault(l => l.Id == id));

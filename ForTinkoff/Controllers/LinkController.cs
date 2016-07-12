@@ -33,14 +33,19 @@ namespace ForTinkoff.Controllers
                 return NotFound();
             return Ok(link);
         }
+
         [HttpPost]
-        public IHttpActionResult Post([FromBody]Link link)
+        public IHttpActionResult Post([FromBody]string url)
         {
-            if (link == null)
+            if (url == null)
                 return BadRequest();
+
+            var link = linkItems.Last() + 1;
+            link.Url = url;
             linkItems.Add(link);
-            return Ok();
+            return Ok(link.ShortUrl);
         }
+
         [HttpPut]
         public IHttpActionResult Put(int id, [FromBody] Link item)
         {

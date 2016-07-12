@@ -1,9 +1,7 @@
-﻿var ShortLinkApp = angular.module('ShortLinkApp', []);
-ShortLinkApp.controller('ShortLinkController', function ($scope, ShortLinkService) {
-
-    getLinks();
+﻿var GetLinksApp = angular.module('GetLinksApp', []);
+GetLinksApp.controller('GetLinksController', function ($scope, GetLinksService) {
     function getLinks() {
-        ShortLinkService.getLinks()
+        GetLinksService.getLinks()
             .success(function (links) {
                 $scope.links = links;
                 console.log($scope.links);
@@ -13,14 +11,16 @@ ShortLinkApp.controller('ShortLinkController', function ($scope, ShortLinkServic
                 console.log($scope.status);
             });
     }
+
+    getLinks();
 });
 
-ShortLinkApp.factory('ShortLinkService', ['$http', function ($http) {
+GetLinksApp.factory('GetLinksService', ['$http', function ($http) {
 
-    var ShortLinkService = {};
-    ShortLinkService.getLinks = function () {
+    var GetLinksService = {};
+    GetLinksService.getLinks = function () {
         return $http.get('/Api/Link');
     };
-    return ShortLinkService;
+    return GetLinksService;
 
 }]);

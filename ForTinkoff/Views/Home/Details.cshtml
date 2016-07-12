@@ -1,7 +1,31 @@
 ﻿@{
     ViewBag.Title = "Details";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+@section scripts{
+    <script src="../../Modules/GetLinks.js"></script>
+}
 
-<p>Use this area to provide additional information.</p>
+<div ng-app="GetLinksApp" class="container">
+    <br/>
+    <br/>
+    <input type="text" placeholder="Search" ng-model="searchLink"/>
+    <br/>
+    <div ng-controller="GetLinksController">
+        <table class="table table-striped">
+            <tr class="">
+                <th>Id</th>
+                <th>Date</th>
+                <th>Url</th>
+                <th>Short Url</th>
+                <th>Jumps</th>
+            </tr>
+            <tr ng-repeat="r in links | filter : searchLink">
+                <td>{{r.Id}}</td>
+                <td>{{r.InitDateTime}}</td>
+                <td>{{r.Url}}</td>
+                <td>{{r.ShortUrl}}</td>
+                <td>{{r.Jumps}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

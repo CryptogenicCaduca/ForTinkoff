@@ -3,23 +3,16 @@
 }
 @section scripts{
     <script src="../../Scripts/angular.min.js"></script>
-    <script src="../../Modules/ShortLink.js"></script>
+    <script src="../../Modules/ShortenLink.js"></script>
 }
 
-<div ng-app="ShortLinkApp" class="container">
+<div ng-app="ShortenLinkApp" class="container">
     <br/>
     <br/>
-    <input type="text" placeholder="Search Link" ng-model="searchLink"/>
+
+        <div class="col-lg-10  col-lg-offset-3 btn-block" ng-controller="eventHandlerController">
+            <input class="col-lg-8 form-control" type="text" name="url" placeholder="Paste a link to shorten it" ng-model="longLink">
+            <button class="col-md-2 btn btn-primary" ng-click="shortenLink()">Shorten Link</button>
+        </div>
     <br/>
-    <div ng-controller="ShortLinkController">
-        <table class="table table-striped">
-            <tr ng-repeat="r in links | filter : searchLink">
-                <td>{{r.Id}}<td>
-                <td>{{r.InitDateTime}}<td>
-                <td>{{r.Url}}<td>
-                <td>{{r.ShortUrl}}<td>
-                <td>{{r.Jumps}}<td>
-            </tr>
-        </table>
-    </div>
 </div>
