@@ -14,7 +14,11 @@ namespace ForTinkoff.Controllers
         public ActionResult Index(string id)
         {
             var shortUrl = Request.Url.OriginalString;
-            var link =context.Links.FirstOrDefault(l => l.ShortUrl == shortUrl);
+            //DO NOT REPLACE WHERE, Because case sensitive comparison is needed.
+            //This is case insensitive, because this is performed in SQL through Table
+            var links = context.Links.Where(l => l.ShortUrl == shortUrl).ToArray();
+            //This is case sensitive, because this is performed through Array
+            var link = links.FirstOrDefault(l => l.ShortUrl == shortUrl);
             if (link == null)
                 return new HttpNotFoundResult();
             link.Jumps++;
